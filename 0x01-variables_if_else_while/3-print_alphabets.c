@@ -1,10 +1,13 @@
-#include <stdlib.h>
-#include <time.h>
-/* more headers goes there */
+#include <stdio.h>
+/**
+ *main - contains the code for program execution
+ *
+ *Return: returns 0 (Success), otherwise non-zero
+ */
 
-/* betty style doc for function main goes there */
 int main(void)
-{char ch[] = {'a', 'A'};
+{
+	char ch[] = {'a', 'A'};
 
 	while (ch[0] <= 'z')
 	{
