@@ -1,10 +1,12 @@
 #include "main.h"
+
 /**
- *main - contains the code for program execution
+ * main - prints _putchar, followed by a new line
  *
- *Return: returns 0 (Success), otherwise non-zero
+ *Return: returns 0(Success), otherwise non-zero
  *
  */
+
 int main(void)
 {
 	_putchar('_');
