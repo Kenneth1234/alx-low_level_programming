@@ -3,15 +3,20 @@
  *main - contains the code for program execution
  *
  *Return: returns 0 (Success), otherwise non-zero
+ *
  */
-int main (void){
-	int c;
+int main(void)
+{
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 
-c = getchar();
-while (c != EOF) {
-    putchar(c);
-    c = getchar();
-}
-putchar('\n');
-return (0);
+	return (0);
+
 }
