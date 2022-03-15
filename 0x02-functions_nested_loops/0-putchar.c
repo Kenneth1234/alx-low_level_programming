@@ -4,7 +4,7 @@
  *
  *Return: returns 0 (Success), otherwise non-zero
  */
-int main (){
+int main (void){
 	int c;
 
 c = getchar();
