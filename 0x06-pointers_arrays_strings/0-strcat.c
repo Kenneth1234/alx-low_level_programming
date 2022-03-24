@@ -12,28 +12,15 @@
  * Return: returns a pointer to the resulting string dest
  */
 
-char *_strncat(char *dest, char *src, int n)
+char *_strcat(char *dest, char *src)
 {
-	int dest_len, i;
+	int a, b;
 
-	/*store length of dest in the dest_len variable*/
-	dest_len = 0;
-	while (dest[dest_len] != '\0')
+	for (a = 0; dest[a] != '\0'; a++)
+		;
+	for (b = 0; src[b] != '\0'; b++)
 	{
-		++dest_len;
+		dest[a + b] = src[b];
 	}
-
-	/*
-	 *concatenate src to dest considering n to have
-	 *the max number of characters of src to be appended
-	 */
-	for (i = 0; i < n && src[i] != '\0'; ++i, ++dest_len)
-	{
-		dest[dest_len] = src[i];
-	}
-
-	/*terminating the dest string*/
-	dest[dest_len] = '\0';
-
 	return (dest);
 }
