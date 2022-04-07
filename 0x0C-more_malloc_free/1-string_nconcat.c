@@ -1,61 +1,49 @@
 #include "main.h"
 #include <stdlib.h>
-/**
- * _strlen - give the length of a string
- * @s: string
- * Return: lenght of a string
- */
-
-unsigned int _strlen(char *s)
-{
-	unsigned int i;
-
-	for (i = 0 ; s[i] != '\0' ; i++);
-	return (i);
-}
 
 /**
- * string_nconcat - concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * @n: bytes of s2
- * Return: a pointer with the content of s1 followed by n byte of s2
+ * string_nconcat - concatenates two strings.
+ * @s1: first string.
+ * @s2: second string.
+ * @n: amount of bytes.
+ *
+ * Return: pointer to the allocated memory.
+ * if malloc fails, status value is equal to 98.
  */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int length1, length2, i, j;
-	char *space;
+	char *sout;
+	unsigned int ls1, ls2, lsout, i;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
+
 	if (s2 == NULL)
-	{
 		s2 = "";
-	}
 
-	length1 = _strlen(s1);
-	length2 = _strlen(s2);
+	for (ls1 = 0; s1[ls1] != '\0'; ls1++)
+		;
 
-	if (n >= length2)
-	{
-		n = length2;
-	}
+	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
+		;
 
-	space = malloc(sizeof(char) * (n + length1 + 1));
+	if (n > ls2)
+		n = ls2;
 
-	if (space == NULL)
-	{
+	lsout = ls1 + n;
+
+	sout = malloc(lsout + 1);
+
+	if (sout == NULL)
 		return (NULL);
-	}
 
-	for (i = 0 ; i < length1 ; i++)
-		space[i] = s1[i];
-	for (j = 0 ; s2[j] != '\0' && j != n ; j++, i++)
-		space[i] = s2[j];
+	for (i = 0; i < lsout; i++)
+		if (i < ls1)
+			sout[i] = s1[i];
+		else
+			sout[i] = s2[i - ls1];
 
-	space[i] = '\0';
-	return (space);
+	sout[i] = '\0';
+
+	return (sout);
 }
